@@ -147,10 +147,10 @@ void checkHeaders(char* head1, char* head2, char* header) {
       if (ok)
         break;
       for ( ; head1[j] != '\n' && head1[j] != '\0'
-        && head1[j] != ' '; j++) ;
+        && head1[j] != ' ' && head1[j] != '/'; j++) ;
       head1[j] = '\0';  // trim head1 for err msg
       exit(error(head1, ERRHEAD));
-    } else if (head1[j] == ' ')
+    } else if (head1[j] == ' ' || head1[j] == '/')
       ok = true;  // headers match
     header[j] = head1[j];
   }
